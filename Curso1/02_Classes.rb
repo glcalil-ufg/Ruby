@@ -1,6 +1,6 @@
 class  Animal
     # @patas
-    # @raca = nil
+    # @nome = nil
 
     # def set_patas(patas)
     #     @patas = patas
@@ -10,21 +10,21 @@ class  Animal
     #     return @patas 
     # end
 
-    # def set_raca(raca)
-    #     @raca = raca
+    # def set_nome(nome)
+    #     @nome = nome
     # end
 
-    # def get_raca()
-    #     return @raca 
+    # def get_nome()
+    #     return @nome 
     # end
     
     #attr_reader leitura || attr_writer escrita
     attr_accessor :patas
-    attr_accessor :raca
+    attr_accessor :nome
 
-    def initialize (patas , raca)
+    def initialize (nome, patas)
+        @nome = nome
         @patas = patas
-        @raca = raca
     end
 
     def emitir_som(som = "lati")
@@ -35,19 +35,39 @@ class  Animal
     end
 end
 
+class Mamifero < Animal
+    attr_accessor :ambiente, :cor 
 
+    def initialize (nome, patas,ambiente, cor)
+        super(nome,patas)
+        @ambiente = ambiente
+        @cor = cor
+    end
+
+    def self.teste
+        print "Self é independente de objeto"
+    end
+end
+
+Const = 10 #letras maisculas para contante 
+puts Const 
 obj1 = Animal.new(2,"nada")
-obj2 = Animal.new(4,"Gato")
+obj2 = Mamifero.new("Baleia",0,"Aquatico", "Cinza")
 # obj.set_patas(2)
-# obj.set_raca("Cachorro")
+# obj.set_nome("Cachorro")
 # puts obj.get_patas
-# puts obj.get_raca
+# puts obj.get_nome
 obj1.patas = 4
-obj1.raca = "Cachorro"
-puts obj1.raca
+obj1.nome = "Cachorro"
+puts obj1.nome
 puts obj1.emitir_som
 puts "Tem #{obj1.patas} patas"
-
-puts obj2.raca
+# Const = 15 #obs da pra alterar uma contante mas tem aviso
+# puts Const
+puts obj2.nome
 puts "Tem #{obj2.patas} patas"
-puts obj2.se_locomover
+puts obj2.se_locomover("nada")
+puts obj2.ambiente
+puts obj2.cor
+
+puts "\n #{Mamifero.teste}"
