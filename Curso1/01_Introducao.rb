@@ -5,7 +5,7 @@ v2 = gets
 puts "Eu disse: #{v1} \nEla disse: #{v2.inspect}" # #{} intercalar string + codigo
 
 #coerção:
-puts" digite um numero: "
+puts"digite um numero: "
 v1 = gets.chomp.to_i #_s string, _i inteiro, _f real, to_sym simbolo
 v2 = v1 + 2
 puts v2
